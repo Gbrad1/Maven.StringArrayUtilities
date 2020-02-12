@@ -170,21 +170,24 @@ public class StringArrayUtils {
         String[] bufferArray = new String[array.length];
         int inputIndex = 0;
         int outputIndex = 0;
-        String lastSeen = null;
-        String tempString = "";
         while (inputIndex < array.length) {
-            if (array[inputIndex] != lastSeen) {
-                lastSeen = array[inputIndex];
-                outputIndex++;
-                tempString += array[inputIndex];
-            } else if (array[inputIndex] == lastSeen)  {
-                bufferArray[outputIndex] = array[inputIndex];
-                tempString += array[inputIndex];
+            String current = array[inputIndex];
+            String lastSeen = null;
+            if (inputIndex == 0) {
+                bufferArray[outputIndex] = current;
                 inputIndex++;
-                outputIndex++;
+                continue;
+            } else {
+                lastSeen = array[inputIndex - 1];
+                if (lastSeen == current) {
+                    bufferArray[outputIndex] += current;
+                } else {
+                    outputIndex++;
+                    bufferArray[outputIndex] = current;
+                }
             }
+           inputIndex++;
         }
-        String[] arrayToReturn = Arrays.copyOfRange(bufferArray, 0, outputIndex);
-        return arrayToReturn;
+        return Arrays.copyOfRange(bufferArray, 0, outputIndex + 1);
     }
 }
