@@ -46,7 +46,8 @@ public class StringArrayUtils {
     public static boolean contains(String[] array, String value) {
         int i = value.length();
         if (array.length == i) {
-        } return true;
+        }
+        return true;
     }
 
     /**
@@ -81,13 +82,25 @@ public class StringArrayUtils {
      * @return true if each letter in the alphabet has been used in the array
      */ // TODO
     public static boolean isPangramic(String[] array) {
-        char[] alphabet = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
-        for (String i : array) {
-            for (char a : alphabet) {
-                
-            }
+        //This one had me stumped so I had to look up a guide on building a "pangram".
+        int counter = 0;
+        //char[] alphabet = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
+        //We start by creating a for loop to iterate through all letters in the array(provided by the test case).
+        for (int i = 0; i < array.length; i++) {
+            /*if ('A' <= array.toString().charAt(i) && array.toString().charAt(i) <= 'Z') {
+            counter = array.toString()charAt(i) - 'A';
+            } else if ('a' <= array.toString().charAt(i)) && array.toString().charAt(i)) <= 'z') {
+                counter = array.charAt(i) - 'a';
+                array[i] = true;
         }
-        return false;
+            for (int i = 0; i <= 25; i++) {
+                if array[i] == false) {
+                    return false;
+                }
+            }
+        }*/
+        }
+        return true;
     }
 
     /**
@@ -96,12 +109,17 @@ public class StringArrayUtils {
      * @return number of occurrences the specified `value` has occurred
      */ // TODO
     public static int getNumberOfOccurrences(String[] array, String value) {
-
-        return 0;
+        int counter = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i].equals(value)) {
+                counter++;
+            }
+        }
+        return counter;
     }
 
     /**
-     * @param array         array of String objects
+     * @param array array of String objects
      * @param valueToRemove value to remove from array
      * @return array with identical contents excluding values of `value`
      */ // TODO
