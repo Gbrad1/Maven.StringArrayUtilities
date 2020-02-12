@@ -1,5 +1,4 @@
 package com.zipcodewilmington;
-
 import java.util.Arrays;
 
 /**
@@ -119,13 +118,25 @@ public class StringArrayUtils {
     }
 
     /**
-     * @param array array of String objects
+     * @param array         array of String objects
      * @param valueToRemove value to remove from array
      * @return array with identical contents excluding values of `value`
      */ // TODO
     public static String[] removeValue(String[] array, String valueToRemove) {
-
-        return null;
+        String[] temp = new String[array.length];
+        int inputIndex = 0;
+        int outputLength = 0;
+        while (inputIndex < array.length) {
+            if (array[inputIndex].equals(valueToRemove)) {
+                inputIndex++;
+            } else {
+                temp[outputLength] = array[inputIndex];
+                inputIndex++;
+                outputLength++;
+            }
+        }
+        String[] arrayToReturn = Arrays.copyOfRange(temp, 0, outputLength);
+        return arrayToReturn;
     }
 
     /**
@@ -133,8 +144,22 @@ public class StringArrayUtils {
      * @return array of Strings with consecutive duplicates removes
      */ // TODO
     public static String[] removeConsecutiveDuplicates(String[] array) {
-
-        return null;
+        String[] bufferArray = new String[array.length];
+        int inputIndex = 0;
+        int outputIndex = 0;
+        String lastSeen = null;
+        while (inputIndex < array.length) {
+            if (array[inputIndex] != lastSeen) {
+                bufferArray[outputIndex] = array[inputIndex];
+                lastSeen = array[inputIndex];
+                inputIndex++;
+                outputIndex++;
+            } else {
+                inputIndex++;
+            }
+        }
+        String[] arrayToReturn = Arrays.copyOfRange(bufferArray, 0, outputIndex);
+        return arrayToReturn;
     }
 
     /**
@@ -142,9 +167,24 @@ public class StringArrayUtils {
      * @return array of Strings with each consecutive duplicate occurrence concatenated as a single string in an array of Strings
      */ // TODO
     public static String[] packConsecutiveDuplicates(String[] array) {
-
-        return null;
+        String[] bufferArray = new String[array.length];
+        int inputIndex = 0;
+        int outputIndex = 0;
+        String lastSeen = null;
+        String tempString = "";
+        while (inputIndex < array.length) {
+            if (array[inputIndex] != lastSeen) {
+                lastSeen = array[inputIndex];
+                outputIndex++;
+                tempString += array[inputIndex];
+            } else if (array[inputIndex] == lastSeen)  {
+                bufferArray[outputIndex] = array[inputIndex];
+                tempString += array[inputIndex];
+                inputIndex++;
+                outputIndex++;
+            }
+        }
+        String[] arrayToReturn = Arrays.copyOfRange(bufferArray, 0, outputIndex);
+        return arrayToReturn;
     }
-
-
 }
