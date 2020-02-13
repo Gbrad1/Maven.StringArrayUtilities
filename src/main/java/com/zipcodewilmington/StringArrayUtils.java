@@ -106,50 +106,7 @@ public class StringArrayUtils {
         }
         return counter == 26;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        /*//This one had me stumped so I had to look up a guide on building a "pangram".
-        int counter = 0;
-        //char[] alphabet = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
-        //We start by creating a for loop to iterate through all letters in the array(provided by the test case).
-        for (int i = 0; i < array.length; i++) {
-            if (array.toString().charAt(i) >= 'A'  &&  'Z' >= array.toString().charAt(i)) {
-            counter = array.toString()charAt(i) - 'A';
-            } else if ('a' <= array.toString().charAt(i)) && array.toString().charAt(i)) <= 'z') {
-                counter = array.charAt(i) - 'a';
-                array[i] = true;
-            }
-                for (int i = 0; i <= 25; i++) {
-                    if array[i] == false) {
-                        return false;
-                    }
-                }
-            }
-        }
-    }*/
-
+    
     /**
      * @param array array of String objects
      * @param value value to check array for
