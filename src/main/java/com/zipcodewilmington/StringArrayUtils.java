@@ -81,26 +81,74 @@ public class StringArrayUtils {
      * @return true if each letter in the alphabet has been used in the array
      */ // TODO
     public static boolean isPangramic(String[] array) {
-        //This one had me stumped so I had to look up a guide on building a "pangram".
+        String alphabet = "abcdefghijklmnopqrstuvwxyz";
+        String fakeArray = "";
+        //char[] newString = fakeArray.toCharArray();
+        int counter = 0;
+        boolean[] visited = new boolean[26];
+
+        for (int i = 0; i < array.length; i++) {
+            fakeArray += array[i];
+        }
+
+        fakeArray = fakeArray.toLowerCase();
+        System.out.println(fakeArray);
+        System.out.println();
+        for (int i = 0; i < 26; i++) {
+            for (int j = 0; j < fakeArray.length(); j++) {
+                System.out.println(alphabet.substring(i, i + 1) + " " + fakeArray.substring(j, j + 1));
+                if (alphabet.substring(i, i + 1).equals(fakeArray.substring(j, j + 1))) {
+                    counter++;
+                    System.out.println(counter);
+                    break;
+                }
+            }
+        }
+        return counter == 26;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /*//This one had me stumped so I had to look up a guide on building a "pangram".
         int counter = 0;
         //char[] alphabet = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
         //We start by creating a for loop to iterate through all letters in the array(provided by the test case).
         for (int i = 0; i < array.length; i++) {
-            /*if ('A' <= array.toString().charAt(i) && array.toString().charAt(i) <= 'Z') {
+            if (array.toString().charAt(i) >= 'A'  &&  'Z' >= array.toString().charAt(i)) {
             counter = array.toString()charAt(i) - 'A';
             } else if ('a' <= array.toString().charAt(i)) && array.toString().charAt(i)) <= 'z') {
                 counter = array.charAt(i) - 'a';
                 array[i] = true;
-        }
-            for (int i = 0; i <= 25; i++) {
-                if array[i] == false) {
-                    return false;
+            }
+                for (int i = 0; i <= 25; i++) {
+                    if array[i] == false) {
+                        return false;
+                    }
                 }
             }
-        }*/
         }
-        return true;
-    }
+    }*/
 
     /**
      * @param array array of String objects
